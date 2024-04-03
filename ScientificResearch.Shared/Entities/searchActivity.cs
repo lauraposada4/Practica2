@@ -33,5 +33,12 @@ namespace ScientificResearch.Shared.Entities
         [DisplayFormat(DataFormatString = "{0: yyyy/MM/dd }", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
         public DateTime EndDate { get; set; }
+
+        //Se colocan las tablas con la que esta clase se relaciona
+        public ScientificInvestigation ScientificInvestigations { get; set; }   
+
+        //SearchActivity envía su clave foránea a specialicedResource
+
+        public ICollection<specializedResource> SpecializedResources { get; set; }  
     }
 }

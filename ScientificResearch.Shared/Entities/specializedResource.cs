@@ -30,5 +30,13 @@ namespace ScientificResearch.Shared.Entities
         [DisplayFormat(DataFormatString = "{0: yyyy/MM/dd HH:mm }", ApplyFormatInEditMode = true)]
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
         public DateTime deliveyDate { get; set; }
+
+        //Relaciones entre tablas
+        public ScientificInvestigation ScientificInvestigations { get; set; }    
+
+        //specializedResource envía su clave foránea a searchActivity
+
+        public ICollection<searchActivity> SearchActivities { get; set; }
+
     }
 }

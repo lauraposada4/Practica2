@@ -34,6 +34,14 @@ namespace ScientificResearch.Shared.Entities
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
         public DateTime EndDate { get; set; }
 
+        //ScientificInvestigation envía su clave foránea a varias entidades
+
+        public ICollection<Publication> Publications { get; set; }  
+        public ICollection<Investigator> Investigators { get; set;}
+
+        public ICollection<searchActivity> SearchActivities { get; set;}
+
+        public ICollection<specializedResource> SpecializedResources { get; set;}
 
     }
 }

@@ -31,7 +31,8 @@ namespace ScientificResearch.Shared.Entities
         [Required(ErrorMessage ="El campo {0} es obligatorio")]
         public DateTime Date { get; set; }
 
-        //Relaciones
+        //Se colocan las tablas con las que se relacionan Publication
+        public ScientificInvestigation ScientificInvestigations { get; set; }    
 
 
     }

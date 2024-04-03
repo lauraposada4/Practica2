@@ -31,7 +31,8 @@ namespace ScientificResearch.Shared.Entities
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
         public string membership { get; set; }
 
+        //Investigator envía su clave foránea a Scientificinvestigation
+        public ICollection<ScientificInvestigation> ScientificInvestigations { get; set;}
         
-        //Relaciones
     }
 }
