@@ -20,4 +20,8 @@
     <Folder Include="Controllers\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ScientificResearch.Shared\ScientificResearch.Shared.csproj" />
+  </ItemGroup>
+
 </Project>

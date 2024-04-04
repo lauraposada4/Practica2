@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using ScientificResearch.Shared.Entities;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
 using System.Reflection.Emit;
