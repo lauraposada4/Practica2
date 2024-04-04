@@ -14,7 +14,7 @@ namespace ScientificResearch.API.Data
 
         public DbSet<Publication> Publications { get; set; }
 
-        public DbSet<Investigador> Investigadors { get; set; }
+        public DbSet<Investigator> Investigators { get; set; }
 
         public DbSet<searchActivity> searchActivities { get; set; }
 
