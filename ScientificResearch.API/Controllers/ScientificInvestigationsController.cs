@@ -26,6 +26,31 @@ namespace ScientificResearch.API.Controllers
             return Ok(await _context.ScientificInvestigations.ToListAsync());
 
         }
+
+        // Método Get- por Id
+        [HttpGet("id:int")]
+        public async Task<ActionResult> Get(int id)
+        {
+
+
+
+            var scientificInvestigation = await _context.ScientificInvestigations.FirstOrDefaultAsync(x => x.Id == id);
+
+            if (scientificInvestigation == null)
+            {
+
+
+                return NotFound();
+
+            }
+
+
+
+            return Ok(scientificInvestigation);
+
+
+        }
+
         [HttpPost]
         public async Task<ActionResult> Post(ScientificInvestigation scientificInvestigations)
         {
@@ -34,6 +59,44 @@ namespace ScientificResearch.API.Controllers
             return Ok(scientificInvestigations);
         }
 
+        // Método actualizar
+        [HttpPut]
+        public async Task<ActionResult> Put(ScientificInvestigation scientificInvestigation)
+        {
+
+            _context.Update(scientificInvestigation);
+            await _context.SaveChangesAsync();
+            return Ok(scientificInvestigation);
+
+
+
+        }
+
+
+        //Médoro eliminar registro
+        [HttpDelete("id:int")]
+        public async Task<ActionResult> Delete(int id)
+        {
+
+
+
+            var Filasafectadas = await _context.ScientificInvestigations
+
+                .Where(x => x.Id == id)
+                .ExecuteDeleteAsync();
+
+            if (Filasafectadas == 0)
+            {
+
+
+                return NotFound();
+
+            }
+
+
+            return NoContent();
+
+        }
 
     }
 }
