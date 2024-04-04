@@ -34,7 +34,7 @@ namespace ScientificResearch.API.Controllers
 
 
 
-            var publication = await _context.Publications.FirstOrDefaultAsync(x => x.Id == id);
+            var publication = await _context.Publications.FirstOrDefaultAsync(x => x.id == id);
 
             if (publication == null)
             {
@@ -82,7 +82,7 @@ namespace ScientificResearch.API.Controllers
 
             var Filasafectadas = await _context.Publications
 
-                .Where(x => x.Id == id)
+                .Where(x => x.id == id)
                 .ExecuteDeleteAsync();
 
             if (Filasafectadas == 0)
