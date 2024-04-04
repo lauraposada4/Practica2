@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace ScientificResearch.Shared.Entities
@@ -35,10 +36,11 @@ namespace ScientificResearch.Shared.Entities
         public DateTime EndDate { get; set; }
 
         //Se colocan las tablas con la que esta clase se relaciona
-        public ScientificInvestigation ScientificInvestigations { get; set; }   
+        public ScientificInvestigation ScientificInvestigations { get; set; }
 
         //SearchActivity envía su clave foránea a specialicedResource
 
+        [JsonIgnore]
         public ICollection<specializedResource> SpecializedResources { get; set; }  
     }
 }

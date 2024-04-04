@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace ScientificResearch.Shared.Entities
@@ -36,11 +37,16 @@ namespace ScientificResearch.Shared.Entities
 
         //ScientificInvestigation envía su clave foránea a varias entidades
 
-        public ICollection<Publication> Publications { get; set; }  
+        [JsonIgnore]
+        public ICollection<Publication> Publications { get; set; }
+
+        [JsonIgnore]
         public ICollection<Investigator> Investigators { get; set;}
 
+        [JsonIgnore]
         public ICollection<searchActivity> SearchActivities { get; set;}
 
+        [JsonIgnore]
         public ICollection<specializedResource> SpecializedResources { get; set;}
 
     }

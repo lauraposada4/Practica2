@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace ScientificResearch.Shared.Entities
@@ -32,6 +33,8 @@ namespace ScientificResearch.Shared.Entities
         public string membership { get; set; }
 
         //Investigator envía su clave foránea a Scientificinvestigation
+
+        [JsonIgnore]
         public ICollection<ScientificInvestigation> ScientificInvestigations { get; set;}
         
     }
