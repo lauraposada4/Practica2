@@ -18,10 +18,6 @@ namespace ScientificResearch.Shared.Entities
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
         public string Name { get; set; }
 
-        [Display(Name = "Cantidad requerida")]
-        [Required(ErrorMessage = "El campo {0} es obligatorio")]
-        public int Quantity { get; set; }
-
         [Display(Name = "Proveedor")]
         [MaxLength(20, ErrorMessage = "No se permiten mas de 20 dígitos")]
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
@@ -32,13 +28,6 @@ namespace ScientificResearch.Shared.Entities
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
         public DateTime deliveyDate { get; set; }
 
-        //Relaciones entre tablas
-        public ScientificInvestigation ScientificInvestigations { get; set; }
-
-        //specializedResource envía su clave foránea a searchActivity
-
-        [JsonIgnore]
-        public ICollection<searchActivity> SearchActivities { get; set; }
 
     }
 }
