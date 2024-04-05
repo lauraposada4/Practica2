@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace ScientificResearch.Shared.Entities
 {
     
-    public class searchActivity
+    public class searchActivity//Actividades de Investigacion
     {
         public int Id { get; set; }
 

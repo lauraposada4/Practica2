@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace ScientificResearch.Shared.Entities
 {
     
-    public class Publication
+    public class Publication//Publicaciones
     {
 
         //Primary key

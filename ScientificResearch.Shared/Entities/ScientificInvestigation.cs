@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ScientificResearch.Shared.Entities
 {
-    public class ScientificInvestigation
+    public class ScientificInvestigation//Proyecto de investigacion científica
     {
         //primary key
         public int Id { get; set; }
