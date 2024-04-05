@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ScientificResearch.Shared.Entities
 {
-    public class specializedResource
+    public class specializedResource//Clase de los recursos especializados
     {
         //Primary key 
         public int Id { get; set; }
@@ -28,6 +28,9 @@ namespace ScientificResearch.Shared.Entities
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
         public DateTime deliveyDate { get; set; }
 
+        //specializedResource envía su clave foránea a ResourceAllocation
+        [JsonIgnore]
+        public ICollection<ResourceAllocation> ResourceAllocations { get; set; }
 
     }
 }

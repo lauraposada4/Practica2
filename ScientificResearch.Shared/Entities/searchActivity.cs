@@ -35,12 +35,11 @@ namespace ScientificResearch.Shared.Entities
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
         public DateTime EndDate { get; set; }
 
-        //Se colocan las tablas con la que esta clase se relaciona
-        public ScientificInvestigation ScientificInvestigations { get; set; }
+      
 
-        //SearchActivity envía su clave foránea a specialicedResource
+        //SearchActivity envía su clave foránea a ResourceAllocation
 
         [JsonIgnore]
-        public ICollection<specializedResource> SpecializedResources { get; set; }  
+        public ICollection<ResourceAllocation> ResourceAllocations { get; set; }  
     }
 }

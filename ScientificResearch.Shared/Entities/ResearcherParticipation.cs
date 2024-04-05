@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ScientificResearch.Shared.Entities
 {
-    public class ResearcherParticipation
+    public class ResearcherParticipation//Participación de Investigadores(Tabla intermedia)
     {
         public int Id { get; set; }
 

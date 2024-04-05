@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace ScientificResearch.Shared.Entities
 {
-    public  class ResourceAllocation
+    public  class ResourceAllocation//Asignación de Recursos(Tabla intermedia)
     {
         public int Id { get; set; }
 
@@ -21,8 +21,6 @@ namespace ScientificResearch.Shared.Entities
         public ScientificInvestigation ScientificInvestigations { get; set; }
 
         public searchActivity searchActivities { get; set; }
-
-        public Investigator Investigators { get; set; }
 
         public specializedResource specializedResources { get; set; }    
 
