@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ScientificResearch.Shared.Entities
 {
-    public class Investigator
+    public class Investigator//Clase de los investigadores
     {
         //Primary key
         public int Id { get; set; }
@@ -32,10 +32,9 @@ namespace ScientificResearch.Shared.Entities
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
         public string membership { get; set; }
 
-        //Investigator envía su clave foránea a Scientificinvestigation
-
+        // Se le Coloca el ICollection 
         [JsonIgnore]
-    public ScientificInvestigation scientificInvestigation { get; set; }    
-        
+        public ICollection<ResearcherParticipation> ResearcherParticipations { get; set; }
+
     }
 } 

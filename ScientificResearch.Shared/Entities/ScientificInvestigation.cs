@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ScientificResearch.Shared.Entities
 {
-    public class ScientificInvestigation
+    public class ScientificInvestigation//Proyecto de investigacion científica
     {
         //primary key
         public int Id { get; set; }
@@ -35,19 +35,9 @@ namespace ScientificResearch.Shared.Entities
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
         public DateTime EndDate { get; set; }
 
-        //ScientificInvestigation envía su clave foránea a varias entidades
-
+        //Se coloca Icollection
         [JsonIgnore]
-        public ICollection<Publication> Publications { get; set; }
-
-        [JsonIgnore]
-        public ICollection<Investigator> Investigators { get; set;}
-
-        [JsonIgnore]
-        public ICollection<searchActivity> SearchActivities { get; set;}
-
-        [JsonIgnore]
-        public ICollection<specializedResource> SpecializedResources { get; set;}
+        public ICollection<ResearcherParticipation> ResearcherParticipations { get; set; }
 
     }
 }

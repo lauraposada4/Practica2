@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ScientificResearch.Shared.Entities
 {
-    public class specializedResource
+    public class specializedResource//Clase de los recursos especializados
     {
         //Primary key 
         public int Id { get; set; }
@@ -17,10 +17,6 @@ namespace ScientificResearch.Shared.Entities
         [MaxLength(30, ErrorMessage = "No se permiten mas de 30 dígitos")]
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
         public string Name { get; set; }
-
-        [Display(Name = "Cantidad requerida")]
-        [Required(ErrorMessage = "El campo {0} es obligatorio")]
-        public int Quantity { get; set; }
 
         [Display(Name = "Proveedor")]
         [MaxLength(20, ErrorMessage = "No se permiten mas de 20 dígitos")]
@@ -32,13 +28,9 @@ namespace ScientificResearch.Shared.Entities
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
         public DateTime deliveyDate { get; set; }
 
-        //Relaciones entre tablas
-        public ScientificInvestigation ScientificInvestigations { get; set; }
-
-        //specializedResource envía su clave foránea a searchActivity
-
+        //specializedResource envía su clave foránea a ResourceAllocation
         [JsonIgnore]
-        public ICollection<searchActivity> SearchActivities { get; set; }
+        public ICollection<ResourceAllocation> ResourceAllocations { get; set; }
 
     }
 }
