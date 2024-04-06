@@ -35,7 +35,7 @@ namespace ScientificResearch.Shared.Entities
         //Investigator envía su clave foránea a Scientificinvestigation
 
         [JsonIgnore]
-        public ICollection<ScientificInvestigation> ScientificInvestigations { get; set;}
+    public ScientificInvestigation scientificInvestigation { get; set; }    
         
     }
-}
+} 
