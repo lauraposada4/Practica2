@@ -9,14 +9,6 @@
 
 
     <div class="mb-3">
-        <label>Document:</label>
-        <div>
-            <InputText width="10" @bind-Value="Investigator.Id"></InputText>
-            <ValidationMessage For="@(() => Investigator.Id)" />
-        </div>
-    </div>
-
-    <div class="mb-3">
         <label>Nombres:</label>
         <div>
             <InputText width="10" @bind-Value="@Investigator.Name"></InputText>
@@ -109,5 +101,4 @@
     }
 }
 
-}
 
