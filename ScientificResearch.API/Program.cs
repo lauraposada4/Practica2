@@ -1,5 +1,8 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using ScientificResearch.API.Data;
+using ScientificResearch.API.Helpers;
+using ScientificResearch.Shared.Entities;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,6 +11,29 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
+
+
+builder.Services.AddIdentity<User, IdentityRole>(x =>
+{
+
+    x.User.RequireUniqueEmail = true;
+    x.Password.RequireDigit = false;
+    x.Password.RequiredUniqueChars = 6;
+    x.Password.RequireUppercase = false;
+    x.Password.RequireLowercase = false;
+
+    x.Password.RequireNonAlphanumeric = false;
+
+
+
+})
+
+.AddEntityFrameworkStores<DataContext>()
+.AddDefaultTokenProviders();
+
+builder.Services.AddScoped<IUserHelper, UserHelper>();
+
+
 builder.Services.AddSwaggerGen();
 
 /*Inyeccion de dependencia con la base de datos*/
