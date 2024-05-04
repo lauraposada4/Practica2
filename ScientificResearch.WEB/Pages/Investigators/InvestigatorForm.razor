@@ -21,8 +21,8 @@
     <div class="mb-3">
         <label>Especialidad:</label>
         <div>
-            <InputText width="10" @bind-Value="Investigator.specialty"></InputText>
-            <ValidationMessage For="@(() => Investigator.specialty)" />
+            <InputText width="10" @bind-Value="Investigator.Specialty"></InputText>
+            <ValidationMessage For="@(() => Investigator.Specialty)" />
         </div>
     </div>
 
@@ -30,8 +30,16 @@
     <div class="mb-3">
         <label>Afiliacion:</label>
         <div>
-            <InputText width="10" @bind-Value="Investigator.membership"></InputText>
-            <ValidationMessage For="@(() => Investigator.membership)" />
+            <InputText width="10" @bind-Value="Investigator.Membership"></InputText>
+            <ValidationMessage For="@(() => Investigator.Membership)" />
+        </div>
+    </div>
+
+    <div class="mb-3">
+        <label>Email:</label>
+        <div>
+            <InputText width="10" @bind-Value="Investigator.Email"></InputText>
+            <ValidationMessage For="@(() => Investigator.Email)" />
         </div>
     </div>
 
