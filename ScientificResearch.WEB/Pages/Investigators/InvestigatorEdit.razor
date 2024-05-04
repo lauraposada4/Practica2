@@ -44,7 +44,7 @@ else
 
     private async Task Editar()
     {
-        var responseHttp = await repository.PostAsync("/api/investigators", investigator);
+        var responseHttp = await repository.PutAsync("/api/investigators", investigator);
 
         if (responseHttp.Error)
         {
@@ -62,7 +62,7 @@ else
                 ShowConfirmButton = true,
                 Timer = 3000
             });
-        await toast.FireAsync(icon: SweetAlertIcon.Success, message: "Registro creado con exito");
+        await toast.FireAsync(icon: SweetAlertIcon.Success, message: "Cambios guardados con exito");
 
     }
 
