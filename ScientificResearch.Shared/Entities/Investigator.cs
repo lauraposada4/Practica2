@@ -23,14 +23,14 @@ namespace ScientificResearch.Shared.Entities
         [Display(Name = "Especialidad")]
         [MaxLength(20, ErrorMessage = "No se permiten mas de 20 dígitos")]
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
-        public string specialty { get; set; }
+        public string Specialty { get; set; }
 
 
 
         [Display(Name = "Afiliación")]
         [MaxLength(20, ErrorMessage = "No se permiten mas de 20 dígitos")]
         [Required(ErrorMessage = "El campo {0} es obligatorio")]
-        public string membership { get; set; }
+        public string Membership { get; set; }
 
         [Display(Name = "Email")]
         [MaxLength(50, ErrorMessage = "No se permiten más de 50 Caracteres")]
