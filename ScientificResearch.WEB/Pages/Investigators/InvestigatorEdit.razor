@@ -1,0 +1,75 @@
+﻿@page "/investigators/edit/{Id:int}"
+@using System.Net
+@inject NavigationManager navigationManager
+@inject IRepository repository
+@inject SweetAlertService sweetAlertService
+
+<h3>Editar</h3>
+
+@if (investigator is null)
+{
+    <p> Cargando...</p>
+}
+else
+{
+    <InvestigatorForm @ref ="investigatorForm" Investigator="investigator" OnValidSubmit="Editar" ReturnAction="Return"/>
+}
+
+@code {
+    [Parameter]
+    public int Id { get; set; }
+    private Investigator investigator;
+    private InvestigatorForm investigatorForm;
+
+    protected override async Task OnParametersSetAsync()
+    {
+        var responseHttp = await repository.GetAsync<Investigator>($"api/investigator/{Id}");
+        if (responseHttp.Error)
+        {
+            if (responseHttp.HttpResponseMessage.StatusCode == HttpStatusCode.NotFound)
+            {
+                navigationManager.NavigateTo("/investigator");
+            }
+            else
+            {
+                var messsage = await responseHttp.GetErrorMessageAsync();
+                await sweetAlertService.FireAsync("Error", messsage, SweetAlertIcon.Error);
+            }
+        }
+        else
+        {
+            investigator = responseHttp.Response;
+        }
+    }
+
+    private async Task Editar()
+    {
+        var responseHttp = await repository.PostAsync("/api/investigators", investigator);
+
+        if (responseHttp.Error)
+        {
+            var message = await responseHttp.GetErrorMessageAsync();
+            await sweetAlertService.FireAsync("Error", message);
+            return;
+
+        }
+        Return();
+
+        var toast = sweetAlertService.Mixin(new SweetAlertOptions
+            {
+                Toast = true,
+                Position = SweetAlertPosition.BottomEnd,
+                ShowConfirmButton = true,
+                Timer = 3000
+            });
+        await toast.FireAsync(icon: SweetAlertIcon.Success, message: "Registro creado con exito");
+
+    }
+
+    private void Return()
+    {
+        investigatorForm!.FormularioPosteadoConExito = true;
+        navigationManager.NavigateTo("/investigators");
+    }
+
+}
