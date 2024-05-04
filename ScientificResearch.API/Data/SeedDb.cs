@@ -43,9 +43,9 @@ namespace ScientificResearch.API.Data
 
 
 
-        private async Task<User> CheckUserAsync( string Name, string Specialty, string Membership, string Email, UserType userType)
+        private async Task<User> CheckUserAsync( string name, string specialty, string membership, string email, UserType userType)
         {
-            var user = await _userHelper.GetUserAsync(Email);
+            var user = await _userHelper.GetUserAsync(email);
 
             if (user == null)
             {
@@ -53,11 +53,11 @@ namespace ScientificResearch.API.Data
                 user = new User
                 {
                    
-                    Name = Name,
-                    Specialty = Specialty,
-                    Membership = Membership,
-                    Email = Email,
-                    UserName = Email,
+                    Name = name,
+                    Specialty = specialty,
+                    Membership = membership,
+                    Email = email,
+                    UserName = email,
                     UserType = userType,
                 };
 

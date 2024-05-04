@@ -23,12 +23,12 @@ else
 
     protected override async Task OnParametersSetAsync()
     {
-        var responseHttp = await repository.GetAsync<Investigator>($"api/investigator/{Id}");
+        var responseHttp = await repository.GetAsync<Investigator>($"api/investigators/{Id}");
         if (responseHttp.Error)
         {
             if (responseHttp.HttpResponseMessage.StatusCode == HttpStatusCode.NotFound)
             {
-                navigationManager.NavigateTo("/investigator");
+                navigationManager.NavigateTo("/investigators");
             }
             else
             {
