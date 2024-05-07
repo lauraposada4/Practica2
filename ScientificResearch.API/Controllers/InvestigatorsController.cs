@@ -53,11 +53,11 @@ namespace ScientificResearch.API.Controllers
 
 
         [HttpPost]
-        public async Task<ActionResult> Post(Investigator investigators)
+        public async Task<ActionResult> Post(Investigator investigator)
         {
-            _context.Add(investigators);
+            _context.Add(investigator);
             await _context.SaveChangesAsync();
-            return Ok(investigators);
+            return Ok(investigator);
         }
 
         // Método actualizar
